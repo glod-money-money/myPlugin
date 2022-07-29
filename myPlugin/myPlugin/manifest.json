@@ -9,15 +9,27 @@
         "16":"img/logo.png"
     },
     "background":{
-        "scripts":["./js/background.js"]
+        "scripts":["js/background.js"]
     },
     "browser_action":{
         "default_icon":"img/logo.png",
         "default_popup":"htmls/popUpIndex.html"
     },
-    "permissions": [
-        "tabs"
-      ]
+	"content_scripts": [
+		{
+			"matches": ["<all_urls>"],
+			"js": ["js/content.js"]
+		}
+	],
+	"premissions": [
+		"contextMenus",
+		"tabs",
+		"notifications",
+		"webRequest",
+		"storage",
+		"http://*/*", 
+		"https://*/*"
+	]
 }
 
     

@@ -8,13 +8,22 @@
     myLi.innerText = `${opt.name || opt.event ||'默认按钮'}`;
     myLi.className = "btn_list";
     myLi.clickFun = `${opt.event}`;
-    myLi.addEventListener('click',function(){
-      if(opt.event && window[opt.event]){
-        window[opt.event]();       
-      }else{
-        alert("请检查配置的方法名是否正确")
-      }
-    })
+    if(!opt.disabled){
+      myLi.addEventListener('click',function(){
+        if(opt.event && window[opt.event]){
+          // let params = null
+          // if(opt.params){
+          //   params = Object.assign({},params,opt.params)
+          // }
+          window[opt.event]();       
+        }else{
+          // alert("请检查配置的方法名是否正确")
+          window.errorMessage("请检查配置的方法名是否正确!")
+        }
+      })
+    }else{
+      myLi.classList.add('btn_disabled')
+    }
     return myLi;
   }
 

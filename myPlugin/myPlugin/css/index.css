@@ -49,3 +49,16 @@
 .btn_list:nth-child(even){
     background-color: rgb(229, 231, 231);
 }
+.btn_disabled{
+    background-color: gray;
+    opacity: 0.65;
+    cursor: not-allowed;
+    cursor: no-drop;
+}
+.btn_disabled:hover{
+    background-color: gray!important;
+    color: aliceblue!important;
+}
+.btn_disabled:hover::after{
+    content: '（已禁用）';
+}
