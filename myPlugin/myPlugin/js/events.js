@@ -20,10 +20,9 @@ function openBaidu(){
 }
 
 //消息通讯-content
-function sendMessageToContent () {
-    let message = {action: 'test', data: '你好，我来自popup！'}
+function sendMessageToContent (params) {
 	chrome.tabs.query({active: true, currentWindow: true}, (tabs) => {
-		chrome.tabs.sendMessage(tabs[0].id, message)
+		chrome.tabs.sendMessage(tabs[0].id, params)
 	})
 }
 
